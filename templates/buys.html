@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}buy{% endblock title %}
+{% block body %}
+<div class="container mt-3">
+ <div class="row">
+     <div class="col-md-6">
+        {% for property in propertyDetails  %}
+        <div class="card" style="width: 40rem;">
+          <img src="static/images/{{property[8]}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${{property[7]}}</h5>
+            <p class="card-text">{{property[6]}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{property[5]}}</li>
+            <li class="list-group-item">{{property[4]}} {{property[2]}}</li>
+            <li class="list-group-item">{{property[3]}}</li>
+            <li class="list-group-item">{{property[0]}}</li>
+          </ul>
+          <div class="card-body">
+            <form method="POST" action="/bookings">
+                <input  type="hidden" name="property_id" value={{property[0]}}>
+                <input  type="hidden" name="owner_id" value={{property[1]}}>  
+                <button type="submit" button class="btn btn-primary" type="button">Buy</button>
+            </form>
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+     </div>
+     <div class="col-md-6"><img src="https://image.freepik.com/free-vector/house-sale-rent-illustration_23-2148658032.jpg" class="img-fluid" alt="..."></div>
+     
+ </div>   
+
+
+{% endblock body %}
+</div>

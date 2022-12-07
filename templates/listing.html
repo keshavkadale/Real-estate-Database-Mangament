@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Listing{% endblock title %}
+{% block body %}
+<div class="container">
+    <h1>Post a For Sale by Owner Listing</h1>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <form method="POST" action="" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">location</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="location" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">city</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="city" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">zipcode</label>
+                    <input type="numberr" class="form-control" id="exampleInputPassword1" name="zipcode" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">descripition</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="description" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">property_type</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="property_type" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">price</label>
+                    <input type="number" class="form-control" id="exampleInputPassword1" name="price" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              
+                 </div>
+                      <div class="col-md-4"><img src="https://image.freepik.com/free-vector/collection-front-view-modern-urban-houses_23-2148662027.jpg" class="img-fluid" alt="...">
+
+                   <p> </p>
+                     <div><input type="file" class="form-control" id="exampleInputImage1" name="image" required></div>
+                 </div>
+            </form>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{% endblock body %}

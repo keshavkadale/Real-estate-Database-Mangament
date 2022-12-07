@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+Payment
+{% endblock title %}
+
+{% block body %}
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">pID</th>
+      <th scope="col">bID</th>
+      <th scope="col">AMONT</th>
+      <th scope="col">TRFNO</th>
+      <th scope="col">EDIT</th>
+      <th scope="col">DELETE</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for Payment in paymentDetails %}
+    <tr>
+      <th scope="row">{{Payment[0]}}</th>
+      <td>{{Payment[1]}}</td>
+      <td>{{Payment[2]}}</td>
+      <td>{{Payment[3]}}</td>
+    <td><a href="/edit/{{Payment[0]}}"><button class="btn btn-primary">Edit </button> </a> </td>
+    <td><a href="/delete/{{Payment[0]}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a> </td>
+    </tr>
+{% endfor %}
+  
+  </tbody>
+</table>
+
+
+{% endblock body %}

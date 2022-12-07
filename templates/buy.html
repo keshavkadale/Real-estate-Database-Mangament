@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Buy{% endblock title %}
+
+{% block body %}
+{% for property in propertyDetails %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">property_id</th>
+      <th scope="col">owner_id</th>
+      <th scope="col">location</th>
+      <th scope="col">city</th>
+      <th scope="col">zipcode</th>
+      <th scope="col">description</th>
+      <th scope="col">property_type</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{property[1]}}</td>
+      <td>{{property[2]}}</td>
+      <td>{{property[3]}}</td>
+      <td>{{property[4]}}</td>
+      <td>{{property[5]}}</td>
+      <td>{{property[6]}}</td>
+      <td>{{property[7]}}</td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+
+
+{% endblock body %}
+
+
+
