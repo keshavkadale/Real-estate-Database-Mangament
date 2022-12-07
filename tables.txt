@@ -1,0 +1,57 @@
+ADMIN TABLE:
+CREATE TABLE adminaccount(
+    owner_id INT AUTO_INCREMENT,
+    name VARCHAR(50),
+    email VARCHAR(50),
+    password VARCHAR(1000),
+    contact INT(10) NOT NULL,
+    address VARCHAR(100),
+    PRIMARY KEY(owner_id)
+);
+
+
+
+INSERT INTO adminaccount(name,email,password,contact,address)
+VALUES('admin','admin@gmail.com','123456','1234567890','south colorado springs');
+
+select *from adminaccount;
+
+ACCOUNT OR OWNER TABLE:
+CREATE TABLE account(
+    owner_id INT AUTO_INCREMENT,
+    name VARCHAR(50),
+    email VARCHAR(50),
+    password VARCHAR(1000),
+    contact INT(10) NOT NULL,
+    address VARCHAR(100),
+    PRIMARY KEY(owner_id)
+);
+
+select *from account;
+
+
+PROPERTY TABLE:
+CREATE TABLE property(
+    property_id INT PRIMARY KEY AUTO_INCREMENT,
+    owner_id INT,
+    location VARCHAR(100),
+    city VARCHAR(10),
+    zipcode INT(6),
+    description VARCHAR(1000),
+    property_type VARCHAR(10),
+    price INT(10),
+    image VARCHAR(1000),
+    FOREIGN KEY(owner_id) REFERENCES account(owner_id)
+);
+
+
+
+BOOKINGS TABLE:
+CREATE TABLE bookings(
+    booking_id INT PRIMARY KEY AUTO_INCREMENT,
+    property_id INT,
+    seller_id INT,
+    buyer_id INT,
+    DATE DATETIME,
+    FOREIGN KEY(property_id) REFERENCES property(property_id)
+);
